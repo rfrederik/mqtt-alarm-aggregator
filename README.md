@@ -72,3 +72,19 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 # mqtt-alarm-aggregator
+
+## Testing Notes
+
+```bash
+# Subscribe to the parent topic (observe here when publishing on child)
+$ mosquitto_sub -h localhost -t site/123/photovoltaic/skidControlUnits/01A/status
+
+# Publish '1' or '0' to child topics
+$ mosquitto_pub -h localhost -t site/123/photovoltaic/skidControlUnits/01A/inverters/1/status -m "0"
+$ mosquitto_pub -h localhost -t site/123/photovoltaic/skidControlUnits/01A/inverters/2/status -m "0"
+$ mosquitto_pub -h localhost -t site/123/photovoltaic/skidControlUnits/01A/inverters/3/status -m "0"
+$ mosquitto_pub -h localhost -t site/123/photovoltaic/skidControlUnits/01A/inverters/4/status -m "0"
+$ mosquitto_pub -h localhost -t site/123/photovoltaic/skidControlUnits/01A/inverters/5/status -m "0"
+$ mosquitto_pub -h localhost -t site/123/photovoltaic/skidControlUnits/01A/inverters/6/status -m "0"
+
+```
