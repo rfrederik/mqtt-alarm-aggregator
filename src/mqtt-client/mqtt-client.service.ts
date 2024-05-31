@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Topics } from 'src/types/topics';
+import { Topics } from '../types/topics';
 import { EXPECTED_TOPICS } from '../types/topics.constants';
 import mqtt, { MqttClient } from 'mqtt';
 
