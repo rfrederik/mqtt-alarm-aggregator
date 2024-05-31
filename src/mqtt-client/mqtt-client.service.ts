@@ -30,12 +30,9 @@ export class MqttClientService {
   }
 
   private publishToParentTopic() {
-    if (this.allChildTopicsAreGood()) {
-      this.client.publish(this.topics.parentTopic, '1');
-    } else {
-      this.client.publish(this.topics.parentTopic, '0');
-    }
-  }
+    const message = this.allChildTopicsAreGood() ? '1' : '0';
+    this.client.publish(this.topics.parentTopic, message);
+}
 
   private allChildTopicsAreGood(): boolean {
     return this.topics.childTopics.every(
